@@ -40,7 +40,7 @@ module.exports = function(passport) {
             user = user.toLowerCase();
 
         process.nextTick(function() {
-            User.findOne({ 'user' :  user }, function(err, user) {
+            User.findOne({ 'local.user' :  user }, function(err, user) {
                 if (err)
                     return done(err);
 
@@ -76,10 +76,10 @@ module.exports = function(passport) {
             // if the user is not already logged in:
 	 var newUser            = new User();
 
-                        newUser.user     = user;
-                        newUser.password = newUser.generateHash(password);
+                        newUser.local.user     = user;
+                        newUser.local.password = newUser.generateHash(password);
        
-                User.findOne({ 'user' :  user }, function(err, user) {
+                User.findOne({ 'local.user' :  user }, function(err, user) {
 		    console.log(user);
                     // if there are any errors, return the error
                     if (err)
