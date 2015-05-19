@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
 <script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router-min.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
+
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
 <link rel="import" href="/bower_components/font-roboto/roboto.html">
@@ -95,7 +100,7 @@ text-transform: uppercase;
           <p> Scheduled Tasks: </p>
           <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
             <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}}
-              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)">Remove</button>
+              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)" ng-click="reloadRoute()">Remove</button>
             </li>
           </ul>
 
